@@ -24,16 +24,18 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   // This for access or fetchthe data from the localhost:3000 (our index.js) 
-  const handleSearch = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/search', {
-        params: { q: searchQuery }, // q set as searchQuery 
+  // This for access or fetch the data from your server 
+const handleSearch = async () => {
+  try {
+      const response = await axios.get('http://192.168.29.133:3000/search', { // replace with your local IP
+          params: { q: searchQuery }, // q set as searchQuery 
       });
       setResults(response.data);
-    } catch (error) {
+  } catch (error) {
       console.error('Error fetching search results:', error);
-    }
-  };
+  }
+};
+
 
   return (
     <div>
