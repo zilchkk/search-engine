@@ -26,14 +26,15 @@ const App = () => {
   // This for access or fetchthe data from the localhost:3000 (our index.js) 
   const handleSearch = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/search', {
-        params: { q: searchQuery }, // q set as searchQuery 
+      const response = await axios.get('https://search-engine-server-seven.vercel.app/search', {
+        params: { q: searchQuery },
       });
       setResults(response.data);
     } catch (error) {
       console.error('Error fetching search results:', error);
     }
   };
+  
 
   return (
     <div>
